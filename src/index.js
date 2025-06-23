@@ -1,20 +1,22 @@
-import express from 'express';
 import dotenv from 'dotenv';
-import mongoose from 'mongoose'
-import connectDB from './db/index.js'
+dotenv.config(); 
+
+import express from 'express';
+import mongoose from 'mongoose';
+import connectDB from './db/index.js';
 import { app } from './app.js';
 
-dotenv.config();
 const port = process.env.PORT || 3000;
 
+// Connect to MongoDB
 connectDB();
 
+// Test route
 app.get('/', (req, res) => {
-  res.send('vercel working');
+  res.send('✅ Vercel working');
 });
 
-
-
+// Start the server
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`🚀 Server running on port ${port}`);
 });
